@@ -1,0 +1,19 @@
+---
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/golang:latest
+    steps:
+      - checkout
+
+      - restore_cache:
+          key: mod-{{ checksum "go.sum" }}
+
+      - run: go get
+      - run: go test -v ./...
+
+      - save_cache:
+          key: mod-{{ checksum "go.sum" }}
+          paths:
+            - $GOPATH/pkg/mod

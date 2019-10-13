@@ -12,6 +12,11 @@ jobs:
 
       - run: go get
       - run: go test -v ./...
+      - run: go build -o main main.go
+
+      - store_artifacts:
+          path: main
+          destination: main
 
       - save_cache:
           key: mod-{{ checksum "go.sum" }}

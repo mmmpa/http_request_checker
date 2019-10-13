@@ -18,16 +18,16 @@ chmod 700 ./main
 
 ## With specific port
 
-```shell
+```console
 PORT=3939 ./main
 ```
 
 ## With a responser for Slack URL verification
 
-```shell
+```console
 FOR_SLACK=true ./main
 ```
 
 Slack requires a URL that returns `challenge` value for an APP. [url\_verification event \| Slack](https://api.slack.com/events/url_verification)
 
-This setup the endpoint to meet the requirement.
+This sets up the endpoint to meet the requirement.
